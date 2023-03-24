@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'MacPawFixelDisplayRegular';
+  src: url('/fonts/MacPawFixelDisplay-Regular.ttf'), format('ttf'), url('/fonts/MacPawFixelDisplay-Regular.woff2') format('woff2'), /* Modern Browsers */ url('/fonts/MacPawFixelDisplay-Regular.otf') format('opentype');
+  /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: "MacPawFixelDisplayRegular", sans-serif;
+  font-weight: 300;
+  color: #9c9c9c;
+  -webkit-font-smooth: antialiased;
+  background-color: #0D0D11;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+.wrapper {
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}

@@ -1,0 +1,41 @@
+// out: "../css/style.css", compress: false, sourceMap: false
+
+// Font import =========================================== 
+@font-face {
+    font-family: 'MacPawFixelDisplayRegular';
+    src: url('/fonts/MacPawFixelDisplay-Regular.ttf'),
+        format('ttf'),
+        url('/fonts/MacPawFixelDisplay-Regular.woff2') format('woff2'),
+        /* Modern Browsers */
+        url('/fonts/MacPawFixelDisplay-Regular.otf') format('opentype');
+    /* Safari, Android, iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+// Import vars
+@import "vars";
+
+// Nullstyles import ===================================== 
+// @import "/css/reset.css";
+
+
+body {
+    font-family: "MacPawFixelDisplayRegular", sans-serif;
+    font-weight: 300;
+    color: @gray;
+    -webkit-font-smooth: antialiased;
+    background-color: @black;
+
+    &.no-scroll {
+        overflow: hidden; // Запрет скрола при открытии меню
+    }
+}
+
+.wrapper {
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
