@@ -17,42 +17,52 @@
 
 <body>
     <div class="container-md">
-        <h1 class="text-center p-3">Довідка про зміну площі</h1>
-        <!-- <div class="form-floating mb-3">
-            <select class="form-select" id="objectType" aria-label="Floating label select example">
-                <option value="Квартира" selected>Квартира</option>
-                <option value="Будинок садибного типу">Будинок садибного типу</option>
-                <option value="Садовий (дачний) будинок">Садовий (дачний) будинок</option>
-                <option value="Гараж (машино-місце)">Гараж (машино-місце)</option>
-                <option value="Група нежитлових приміщень">Група нежитлових приміщень</option>
-                <option value="Громадський (Виробничий) будинок">Громадський (Виробничий) будинок</option>
-                <option value="Будинок квартирного типу (гуртожиток)">Будинок квартирного типу (гуртожиток)</option>
-                <option value="Захисні споруди цивільного захисту">Захисні споруди цивільного захисту</option>
-                <option value="Об'єкт незавершеного будівництва">Об'єкт незавершеного будівництва</option>
-                <option value="Багатофункціональні будинки для тримання засуджених та осіб, узятих під варту">
-                    Багатофункціональні будинки для тримання засуджених та осіб, узятих під варту</option>
-                <option value="Допоміжна (господарська) будівля">Допоміжна (господарська) будівля</option>
-            </select>
-            <label for="objectType">Тип об'єкту</label>
-        </div> -->
-        <div class="form-check form-switch mb-3">
-            <input class="form-check-input" type="checkbox" role="switch" id="clarification">
-            <label class="form-check-label" for="clarification">Уточнення лінійних розмірів</label>
+        <h1 class="text-center text-light p-3">Текст для довідки про зміну площі</h1>
+        <!-- Radios -->
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="clarification" autocomplete="off">
+            <label class="btn btn-outline-light" for="clarification">Уточнення лінійних розмірів</label>
         </div>
-        <div class="form-check form-switch mb-3">
-            <input class="form-check-input" type="checkbox" role="switch" id="glazing">
-            <label class="form-check-label" for="glazing">Засклення балкону/лоджії</label>
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="glazing" autocomplete="off">
+            <label class="btn btn-outline-light" for="glazing">Засклення балкону/лоджії</label>
         </div>
-        <div class="form-check form-switch mb-3">
-            <input class="form-check-input" type="checkbox" role="switch" id="postanova406">
-            <label class="form-check-label" for="glazing">Постанова 406</label>
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="postanova406" autocomplete="off">
+            <label class="btn btn-outline-light" for="postanova406">Постанова 406</label>
         </div>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Якщо потрібно змініть текст" id="textarea"
-                style="height: 500px"></textarea>
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="without_balkon_1" autocomplete="off">
+            <label class="btn btn-outline-light" for="without_balkon_1">Не враховано площу літніх
+                приміщень 1</label>
+        </div>
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="without_balkon_2" autocomplete="off">
+            <label class="btn btn-outline-light" for="without_balkon_2">Не враховано площу літніх
+                приміщень 2</label>
+        </div>
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="zmina_za_rahunok_vkluchennya_zabudovi"
+                autocomplete="off">
+            <label class="btn btn-outline-light" for="zmina_za_rahunok_vkluchennya_zabudovi">Включення площі
+                забудови до загальної площі</label>
+        </div>
+        <div class="form-check-inline mb-3">
+            <input type="radio" class="btn-check" name="options" id="pereliteraciya_budivel" autocomplete="off">
+            <label class="btn btn-outline-light" for="pereliteraciya_budivel">Перелітерація будівель</label>
+        </div>
+        <!-- Textarea -->
+        <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Якщо потрібно змініть текст" id="textarea"></textarea>
             <label for="textarea">Текст довідки</label>
         </div>
-        <button type="button" class="btn btn-primary" id="btn">Primary</button>
+        <button type="button" class="btn btn-primary" id="btn">Копіювати</button>
+    </div>
+    <!-- Toast success -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <!-- add body in JS-->
+        </div>
     </div>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
