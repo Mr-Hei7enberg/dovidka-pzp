@@ -1,71 +1,125 @@
 <!DOCTYPE html>
 <html lang="uk">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://cdn.glitch.global/b86ae697-dc04-4766-b393-86ca2244f16b/apple-touch-icon.png?v=1688372395740"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://cdn.glitch.global/b86ae697-dc04-4766-b393-86ca2244f16b/favicon-32x32.png?v=1688372396490"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://cdn.glitch.global/b86ae697-dc04-4766-b393-86ca2244f16b/favicon-16x16.png?v=1688372396070"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/tail.select-default.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-N6BT939B");
+    </script>
+    <!-- End Google Tag Manager -->
 
     <title>Текст для довідки про зміну площі</title>
-</head>
+  </head>
 
-<body>
-    <div class="container-md">
-        <h1 class="text-center text-light p-3">Текст для довідки про зміну площі</h1>
-        <!-- Radios -->
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="clarification" autocomplete="off">
-            <label class="btn btn-outline-light" for="clarification">Уточнення лінійних розмірів</label>
-        </div>
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="glazing" autocomplete="off">
-            <label class="btn btn-outline-light" for="glazing">Засклення балкону/лоджії</label>
-        </div>
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="postanova406" autocomplete="off">
-            <label class="btn btn-outline-light" for="postanova406">Постанова 406</label>
-        </div>
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="without_balkon_1" autocomplete="off">
-            <label class="btn btn-outline-light" for="without_balkon_1">Не враховано площу літніх
-                приміщень 1</label>
-        </div>
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="without_balkon_2" autocomplete="off">
-            <label class="btn btn-outline-light" for="without_balkon_2">Не враховано площу літніх
-                приміщень 2</label>
-        </div>
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="zmina_za_rahunok_vkluchennya_zabudovi"
-                autocomplete="off">
-            <label class="btn btn-outline-light" for="zmina_za_rahunok_vkluchennya_zabudovi">Включення площі
-                забудови до загальної площі</label>
-        </div>
-        <div class="form-check-inline mb-3">
-            <input type="radio" class="btn-check" name="options" id="pereliteraciya_budivel" autocomplete="off">
-            <label class="btn btn-outline-light" for="pereliteraciya_budivel">Перелітерація будівель</label>
-        </div>
-        <!-- Textarea -->
-        <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Якщо потрібно змініть текст" id="textarea"></textarea>
-            <label for="textarea">Текст довідки</label>
-        </div>
-        <button type="button" class="btn btn-primary" id="btn">Копіювати</button>
+  <body>
+    
+    <div class="container-md" id="wrapper">
+      <h2 class="text-center text-light p-3">Текст довідки</h2>
+      <!-- Select -->
+      <select id="select"></select>
+
+      <!-- Switch for additional note -->
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="additionalNote"
+        />
+        <label class="form-check-label text-light" for="additionalNote"
+          >Додаткова примітка</label
+        >
+      </div>
+
+      <!-- Textarea -->
+      <div class="form-floating mb-3 mt-2">
+        <textarea
+          class="form-control"
+          placeholder="Якщо потрібно змінити текст"
+          id="textarea"
+        ></textarea>
+        <label for="textarea">Текст довідки</label>
+      </div>
+      <button type="button" class="btn btn-primary mb-3" id="btn">
+        Копіювати
+      </button>
+
+      <!-- Kadastr number -->
+      <h2 class="text-center text-light p-3">Дані про земельну ділянку</h2>
+      <div class="input-group mb-3">
+        <input
+          id="dzk-number"
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="__________:__:___:____"
+          required
+        />
+        <button
+          id="button-dzk-number"
+          class="btn btn-outline-primary"
+          type="button"
+        >
+          Шукати
+        </button>
+      </div>
+
+      <!--       <iframe id="visicomMap" scrolling="no" frameborder="0" class="pb-5"></iframe> -->
+
+      <div id="dzk-answer" class="d-flex flex-column">
+        <!-- data from fetch -->
+      </div>
     </div>
     <!-- Toast success -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <!-- add body in JS-->
-        </div>
+      <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <!-- add body in JS-->
+      </div>
     </div>
+    <script src="/js/inputmask.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/tail.select.min.js"></script>
+    <script type="text/javascript" src="js/tail.select-ua.js"></script>
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>
